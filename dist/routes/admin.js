@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+// import {TokenAuthorization} from '../middleware/token';
+const admin_1 = require("../controllers/admin");
+const router = (0, express_1.Router)();
+router.post('/addProduct', admin_1.addProduct);
+router.get('/fetchProducts', admin_1.fetchProducts);
+router.get('/getProduct/:id', admin_1.fetchProductById);
+router.delete('/deleteProduct/:id', admin_1.deleteProduct);
+router.post('/editProduct', admin_1.addProduct);
+exports.default = router;
