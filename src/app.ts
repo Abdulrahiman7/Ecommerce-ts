@@ -2,6 +2,8 @@ import express from 'express';
 
 import { mongoConnect } from './util/database';
 import adminRoutes from './routes/admin';
+import userRoutes from './routes/user';
+
 const cors=require('cors');
 
 const app=express();
@@ -17,6 +19,7 @@ app.use((req, res, next) => {
     next();
   });
 app.use(adminRoutes);
+app.use(userRoutes);
 
 mongoConnect(()=>{
     app.listen(3000);

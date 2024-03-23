@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = require("./util/database");
 const admin_1 = __importDefault(require("./routes/admin"));
+const user_1 = __importDefault(require("./routes/user"));
 const cors = require('cors');
 const app = (0, express_1.default)();
 app.use(cors());
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use(admin_1.default);
+app.use(user_1.default);
 (0, database_1.mongoConnect)(() => {
     app.listen(3000);
 });

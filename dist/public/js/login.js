@@ -19,13 +19,12 @@ async function login(e)
             email:email,
             password:password
         }
-        const login=await axios.post('http://15.206.79.217/login',credentials);
+        const login=await axios.post('http://localhost:3000/login',credentials);
         if(login.status==200)
         {
-            localStorage.clear();
-            localStorage.setItem('g-chat_token',login.data.token);
-            localStorage.setItem('g-chat_userName',login.data.userName);
-            window.location.href='http://127.0.0.1:5500/views/chatHome.html';
+            localStorage.setItem('token',login.data.token);
+            console.log(login.data.user);
+            window.location.href='../views/admin.html';
         }
 
     }catch(err)
